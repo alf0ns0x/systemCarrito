@@ -1,0 +1,5 @@
+Creas un proyecto ASP.NET (.NET FRAMEWORK) 4.7.2
+creamos la solucion en blanco SystemVentas
+creamos los proyectos
+capa_PresentacionAdmin  (Establecer como proyecto de inicio)
+capa_PresentacionTienda
