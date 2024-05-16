@@ -1,5 +1,6 @@
-Creas un proyecto ASP.NET (.NET FRAMEWORK) 4.7.2
-creamos la solucion en blanco SystemVentas
-creamos los proyectos
-capa_PresentacionAdmin  (Establecer como proyecto de inicio)
-capa_PresentacionTienda
+Creas un proyecto Aplicacion WEB ASP.NET (.NET FRAMEWORK) 4.7.2
+con nombre  capa_PresentacionAdmin(Establecer como proyecto de inicio)  
+y agregamos a la solucion un proyecto capa_PresentacionTienda en el mismo formato.
+
+en capa_presentacionAdmin instalar bootstrap 5.1.2 en tienda tambien
+
