@@ -1,0 +1,93 @@
+﻿
+@{
+    ViewBag.Title = "Usuarios";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a href="index.html">Resumen</a></li>
+    <li class="breadcrumb-item active">usuarios</li>
+</ol>
+
+<div class="card">
+    <div class="card-header">
+        <i class="fas fa-users me-1"></i> Lista de Usuarios
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-12">
+                <button type="button" class="btn btn-success">Crear nuevo</button>
+            </div>
+
+            <hr />
+
+            <table id="tabla" class="display cell-border" style="width: 100%">
+                <thead>
+                    <tr>
+
+                        <th scope="col">Nombres</th>
+                        <th scope="col">Apellidos</th>
+                        <th scope="col">Correo</th>
+                        <th scope="col">Activo</th>
+                        <th scope="col"></th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+@section scripts{
+
+    <script>
+
+        jQuery.ajax({
+            url: '@Url.Action("ListarUsuarios", "Home")',
+            type: "GET",
+            dataType: "json",
+            contentType: "application/json; charset-utf-8",
+            success: function (data) {
+              
+
+                console.log(data);
+            }
+        });
+
+        tabladata = $("#tabla").DataTable({
+            responsive: true,
+            ordering: false,
+            "ajax": {
+                url: '@Url.Action("ListarUsuarios", "Home")',
+                type: "GET",
+                dataType: "json"
+            },
+            "columns": [
+                { "data": "Nombres" },
+                { "data": "Apellidos" },
+                { "data": "Correo" },
+                {
+                    "data": "Activo", "render": function (valor) {
+                        if (valor) {
+                            return '<span class="badge bg-info text-dark">Si</span>';
+                        } else {
+                            return '<span class="badge bg-danger">No</span>';
+                        }
+                    }
+                    
+                },
+                {
+                    "defaultContent": '<button type="button" class="btn btn-warning"><i class="fas fa-pen"></i></button>' +
+                        '<button type="button" class="btn btn-danger ms-2"><i class="fas fa-trash"></i></button>',
+                    "orderable": false,
+                    "searchable": false,
+                    "width": "90px"
+                }
+            ]
+        });
+    </script>
+}

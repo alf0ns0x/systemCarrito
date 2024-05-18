@@ -84,3 +84,9 @@ C:\Users\Administrador\Desktop\SystemaCarrito\SystemCarritoCompras\capa_Presenta
 C:\Users\Administrador\Desktop\SystemaCarrito\SystemCarritoCompras\capa_PresentacionAdmin\obj\Debug\capa_PresentacionAdmin.dll
 C:\Users\Administrador\Desktop\SystemaCarrito\SystemCarritoCompras\capa_PresentacionAdmin\obj\Debug\capa_PresentacionAdmin.pdb
 C:\Users\Administrador\Desktop\SystemaCarrito\SystemCarritoCompras\capa_PresentacionAdmin\obj\Debug\capa_PresentacionAdmin.csproj.AssemblyReference.cache
+C:\Users\Administrador\Desktop\SystemaCarrito\SystemCarritoCompras\capa_PresentacionAdmin\bin\CapaEntidad.dll
+C:\Users\Administrador\Desktop\SystemaCarrito\SystemCarritoCompras\capa_PresentacionAdmin\bin\CapaNegocio.dll
+C:\Users\Administrador\Desktop\SystemaCarrito\SystemCarritoCompras\capa_PresentacionAdmin\bin\CapaDatos.dll
+C:\Users\Administrador\Desktop\SystemaCarrito\SystemCarritoCompras\capa_PresentacionAdmin\bin\CapaEntidad.pdb
+C:\Users\Administrador\Desktop\SystemaCarrito\SystemCarritoCompras\capa_PresentacionAdmin\bin\CapaNegocio.pdb
+C:\Users\Administrador\Desktop\SystemaCarrito\SystemCarritoCompras\capa_PresentacionAdmin\bin\CapaDatos.pdb

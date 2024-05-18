@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+using CapaEntidad;
+using CapaNegocio;
+
 namespace capa_PresentacionAdmin.Controllers
 {
     public class HomeController : Controller
@@ -13,18 +16,19 @@ namespace capa_PresentacionAdmin.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Usuarios()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
+        
+        [HttpGet]
+        public JsonResult ListarUsuarios()
+        {   
+            List<Usuario> olista = new List<Usuario>();
+            olista = new CN_Usuarios().Listar();
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            return Json(new { data = olista}, JsonRequestBehavior.AllowGet);
         }
+
     }
 }
