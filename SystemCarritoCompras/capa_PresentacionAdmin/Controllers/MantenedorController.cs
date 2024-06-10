@@ -57,7 +57,7 @@ namespace capa_PresentacionAdmin.Controllers
 
 
         [HttpPost]
-        public JsonResult EliminarUsuario(int id)
+        public JsonResult EliminarCategoria(int id)
         {
             bool respuesta = false;
             string mensaje = string.Empty;

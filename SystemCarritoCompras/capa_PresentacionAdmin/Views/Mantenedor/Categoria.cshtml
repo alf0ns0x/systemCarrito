@@ -44,7 +44,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-dark text-white">
-                <h5 class="modal-title" id="exampleModalLabel">Usuario</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Categoria</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -94,14 +94,13 @@
             responsive: true,
             ordering: false,
             "ajax": {
-                url: '@Url.Action("ListarUsuarios", "Home")',
+                url: '@Url.Action("ListarCategorias", "Mantenedor")',
                 type: "GET",
                 dataType: "json"
             },
             "columns": [
-                { "data": "Nombres" },
-                { "data": "Apellidos" },
-                { "data": "Correo" },
+                { "data": "Descripcion" },
+               
                 {
                     "data": "Activo", "render": function (valor) {
                         if (valor) {
@@ -128,18 +127,14 @@
         function abrirModal(json) {
 
             $("#txtid").val(0);
-            $("#txtnombres").val("");
-            $("#txtapellidos").val("");
-            $("#txtcorreo").val("");
+            $("#txtdescripcion").val('');
             $("#cboactivo").val(1);
 
             $("#mensajeError").hide();
 
             if (json != null) {
-                $("#txtid").val(json.IdUsuario);
-                $("#txtnombres").val(json.Nombres);
-                $("#txtapellidos").val(json.Apellidos);
-                $("#txtcorreo").val(json.Correo);
+                $("#txtid").val(json.IdCategoria);
+                $("#txtdescripcion").val(json.Descripcion);
                 $("#cboactivo").val(json.Activo == true ? 1 : 0);
             }
 
@@ -158,13 +153,13 @@
 
         $("#tabla tbody").on("click", '.btn-eliminar', function () {
 
-            var usuarioSeleccionado = $(this).closest("tr");
+            var categoriaSeleccionada = $(this).closest("tr");
 
-            var data = tabladata.row(usuarioSeleccionado).data();
+            var data = tabladata.row(categoriaSeleccionada).data();
 
             swal({
-                title: "Are you sure?",
-                text: "You will not be able to recover this imaginary file!",
+                title: "Estas Seguro?",
+                text: "Desea Eliminar Categoria!",
                 type: "warning",
                 showCancelButton: true,
                 confirmButtonClass: "btn-danger",
@@ -176,9 +171,9 @@
                 function () {
 
                    jQuery.ajax({
-                        url: '@Url.Action("EliminarUsuario", "Home")',
-                        type: "POST",
-                        data: JSON.stringify({ id: data.IdUsuario }),
+                        url: '@Url.Action("EliminarCategoria", "Mantenedor")',
+                       type: "POST",
+                       data: JSON.stringify({ id: data.IdCategoria }),
                         dataType: "json",
                         contentType: "application/json; charset=utf-8",
                         success: function (data) {
@@ -203,35 +198,33 @@
 
         });
 
-
+        
         function Guardar() {
-
-            var Usuario = {
-                IdUsuario: $("#txtid").val(),
-                Activo: $("#cboactivo").val() == 1 ? true : false,
-                Apellidos: $("#txtapellidos").val(),
-                Correo: $("#txtcorreo").val(),
-                Nombres: $("#txtnombres").val(),
+            
+            var Categoria = {
+                IdCategoria: $("#txtid").val(),
+                Descripcion: $("#txtdescripcion").val(),
+                Activo: $("#cboactivo").val() == 1 ? true : false
             }
 
 
             jQuery.ajax({
-                url: '@Url.Action("GuardarUsuario", "Home")',
+                url: '@Url.Action("GuardarCategoria", "Mantenedor")',
                 type: "POST",
-                data: JSON.stringify({ objeto: Usuario }),
+                data: JSON.stringify({ objeto: Categoria }),
                 dataType: "json",
                 contentType: "application/json; charset=utf-8",
                 success: function (data) {
-
+                    
                     $(".modal-body").LoadingOverlay("hide");
-
-                    //Usuario Nuevo
-                    if (Usuario.IdUsuario == 0) {
+                    
+                    //Categoria Nuevo
+                    if (Categoria.IdCategoria == 0) {
 
                         if (data.resultado != 0) {
 
-                            Usuario.IdUsuario = data.resultado;
-                            tabladata.row.add(Usuario).draw(false);
+                            Categoria.IdCategoria = data.resultado;
+                            tabladata.row.add(Categoria).draw(false);
                             $("#FormModal").modal("hide");
                         } else {
 
@@ -239,10 +232,10 @@
                             $("#mensajeError").show();
                         }
                     }
-                    //Editar Usuario
+                    //Editar Categoria
                     else {
                         if (data.resultado) {
-                            tabladata.row(filaSeleccionada).data(Usuario).draw(false);
+                            tabladata.row(filaSeleccionada).data(Categoria).draw(false);
                             filaSeleccionada = null;
                             $("#FormModal").modal("hide");
                         } else {
