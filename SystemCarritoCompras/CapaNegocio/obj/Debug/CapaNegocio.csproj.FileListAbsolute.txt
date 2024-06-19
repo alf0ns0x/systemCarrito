@@ -9,3 +9,14 @@ C:\Users\Administrador\Desktop\SystemaCarrito\SystemCarritoCompras\CapaNegocio\o
 C:\Users\Administrador\Desktop\SystemaCarrito\SystemCarritoCompras\CapaNegocio\obj\Debug\CapaNegocio.csproj.CopyComplete
 C:\Users\Administrador\Desktop\SystemaCarrito\SystemCarritoCompras\CapaNegocio\obj\Debug\CapaNegocio.dll
 C:\Users\Administrador\Desktop\SystemaCarrito\SystemCarritoCompras\CapaNegocio\obj\Debug\CapaNegocio.pdb
+C:\Users\Administrador\Desktop\systemCarrito\SystemCarritoCompras\CapaNegocio\bin\Debug\CapaNegocio.dll
+C:\Users\Administrador\Desktop\systemCarrito\SystemCarritoCompras\CapaNegocio\bin\Debug\CapaNegocio.pdb
+C:\Users\Administrador\Desktop\systemCarrito\SystemCarritoCompras\CapaNegocio\bin\Debug\CapaDatos.dll
+C:\Users\Administrador\Desktop\systemCarrito\SystemCarritoCompras\CapaNegocio\bin\Debug\CapaEntidad.dll
+C:\Users\Administrador\Desktop\systemCarrito\SystemCarritoCompras\CapaNegocio\bin\Debug\CapaDatos.pdb
+C:\Users\Administrador\Desktop\systemCarrito\SystemCarritoCompras\CapaNegocio\bin\Debug\CapaEntidad.pdb
+C:\Users\Administrador\Desktop\systemCarrito\SystemCarritoCompras\CapaNegocio\obj\Debug\CapaNegocio.csproj.AssemblyReference.cache
+C:\Users\Administrador\Desktop\systemCarrito\SystemCarritoCompras\CapaNegocio\obj\Debug\CapaNegocio.csproj.CoreCompileInputs.cache
+C:\Users\Administrador\Desktop\systemCarrito\SystemCarritoCompras\CapaNegocio\obj\Debug\CapaNegocio.csproj.CopyComplete
+C:\Users\Administrador\Desktop\systemCarrito\SystemCarritoCompras\CapaNegocio\obj\Debug\CapaNegocio.dll
+C:\Users\Administrador\Desktop\systemCarrito\SystemCarritoCompras\CapaNegocio\obj\Debug\CapaNegocio.pdb

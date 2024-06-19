@@ -149,13 +149,12 @@ namespace CapaDatos
             {
                 using (SqlConnection oconexion = new SqlConnection(Conexion.cn))
                 {
-                    SqlCommand cmd = new SqlCommand("update producto set RutaImagen = @rutaimagen, NombreImagen = @nombreimagen where IdProducto = @IdProducto", oconexion);
-                    cmd.Parameters.AddWithValue("Precio", obj.RutaImagen);
-                    cmd.Parameters.AddWithValue("Stock", obj.NombreImagen);
-                    cmd.Parameters.AddWithValue("Activo", obj.IdProducto);
-                    cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
-                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
-                    cmd.CommandType = CommandType.StoredProcedure;
+                    string query = "update producto set RutaImagen = @rutaimagen, NombreImagen = @nombreimagen where IdProducto = @IdProducto";
+                    SqlCommand cmd = new SqlCommand(query, oconexion);
+                    cmd.Parameters.AddWithValue("@rutaimagen", obj.RutaImagen);
+                    cmd.Parameters.AddWithValue("@nombreimagen", obj.NombreImagen);
+                    cmd.Parameters.AddWithValue("@IdProducto", obj.IdProducto);
+                    cmd.CommandType = CommandType.Text;
 
                     oconexion.Open();
 
