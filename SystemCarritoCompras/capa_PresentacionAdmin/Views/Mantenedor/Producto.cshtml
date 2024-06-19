@@ -111,8 +111,7 @@
                 <!-- Mensaje de alerta-->
                 <div class="row mt-3">
                     <div class="col-12">
-                        <div id="mensajeError" class="alert alert-success" role="alert">
-                            A simple success alert—check it out!
+                        <div id="mensajeError" class="alert alert-danger" role="alert">
                         </div>
                     </div>
                 </div>
@@ -137,22 +136,34 @@
             responsive: true,
             ordering: false,
             "ajax": {
-                url: '@Url.Action("ListarMarca", "Mantenedor")',
+                url: '@Url.Action("ListarProducto", "Mantenedor")',
                 type: "GET",
                 dataType: "json"
             },
             "columns": [
+                { "data": "Nombre" },
                 { "data": "Descripcion" },
+                {
+                    "data": "oMarca", "render": function (data) {
+                        return data.Descripcion;
+                    }
+                },
+                {
+                    "data": "oCategoria", "render": function (data) {
+                        return data.Descripcion;
+                    }
 
+                },
+                { "data": "Precio" },
+                { "data": "Stock" },
                 {
                     "data": "Activo", "render": function (valor) {
                         if (valor) {
-                            return '<span class="badge bg-info text-dark">Si</span>';
+                            return '<span class="badge bg-success">Si</span>';
                         } else {
                             return '<span class="badge bg-danger">No</span>';
                         }
                     }
-
                 },
                 {
                     "defaultContent": '<button type="button" class="btn btn-warning btn-editar"><i class="fas fa-pen"></i></button>' +
@@ -212,7 +223,7 @@
             contentType: "application/json; charset=utf-8",
             success: function (data) {
 
-                $("<option>").attr({ "value": "0", "disabled":"true" }).text("Seleccionar").appendTo("#cbocategoria");
+                $("<option>").attr({ "value": "0", "disabled": "true" }).text("Seleccionar").appendTo("#cbocategoria");
 
                 $.each(data.data, function (index, item) {
                     $("<option>").attr({ "value": item.IdCategoria }).text(item.Descripcion).appendTo("#cbocategoria");
@@ -221,10 +232,40 @@
             error: function (error) {
                 console.log(error);
             }
-            
-        })
+
+        });
 
 
+        jQuery.validator.addMethod("preciodecimal", function (value, element) {
+            return this.optional(element) || /^\d{0,4}(\.\d{0,2})?$/i.test(value);
+        }, "El formato correcto del precio es ##.##");
+
+        $("#contenedor").validate({
+            rules: {
+                nombre: {
+                    required: true
+                },
+                descripcion: {
+                    required: true
+                },
+                precio: {
+                    required: true,
+                    preciodecimal: true
+                },
+                stock: {
+                    required: true,
+                    number: true
+                }
+            },
+            messages: {
+                nombre: "- El campo nombre es obligatorio",
+                descripcion: "- El campo descripcion es obligatorio",
+                precio: { required: "- El campo precio es obligatorio", preciodecimal: "- El formato correcto del precio es ##.##" },
+                stock: { required: "- El campo stock es obligatorio", preciodecimal: "- Debe ingresar solo numeros en el sotck " }
+            },
+            errorElement: "div",
+            errorLabelContainer: ".alert-danger"
+        });
 
         function abrirModal(json) {
 
@@ -318,7 +359,11 @@
 
 
         function Guardar() {
-            
+
+            if (!$("#contenedor").valid()) {
+                return;
+            }
+
             var ImagenSeleccionada = $("#fileProducto")[0].files[0];
 
             var Producto = {
