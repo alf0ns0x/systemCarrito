@@ -269,3 +269,18 @@ p.Precio,p.Stock,p.RutaImagen,p.NombreImagen,p.Activo
 from PRODUCTO p
 inner join MARCA m on m.IdMarca = p.IdMarca
 inner join CATEGORIA c on c.IdCategoria = p.IdCategoria
+
+###
+create proc sp_ReporteDashboard
+as
+begin
+
+select
+
+(select count(*) from CLIENTE)[TotalCliente],
+(select isnull(sum(cantidad),0) from DETALLE_VENTA) [TotalVenta],
+(select count(*) from PRODUCTO) [TotalProducto]
+
+end
+
+exec sp_ReporteDashboard
