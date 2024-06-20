@@ -53,7 +53,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <input id="txtid" type="text" value="0">
+                <input id="txtid" type="hidden" value="0">
 
                 <form id="contenedor" class="row">
                     <div class="col-sm-3">
@@ -180,7 +180,7 @@
 
 
         function mostrarImagen(input) {
-            
+
             if (input.files) {
 
                 var reader = new FileReader();
@@ -211,7 +211,7 @@
             error: function (error) {
                 console.log(error);
             }
-  
+
         })
 
 
@@ -279,7 +279,7 @@
             $("#txtprecio").val("");
             $("#txtstock").val("");
             $("#cboactivo").val(1);
-           
+
 
 
             $("#cboactivo").val(1);
@@ -295,6 +295,35 @@
                 $("#txtprecio").val(json.Precio);
                 $("#txtstock").val(json.Stock);
                 $("#cboactivo").val(json.Activo == true ? 1 : 0);
+
+
+                jQuery.ajax({
+                    url: '@Url.Action("ImagenProducto", "Mantenedor")',
+                    type: "POST",
+                    data: JSON.stringify({ id: json.IdProducto }),
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        
+
+                            $("#img_producto").LoadingOverlay("hide");
+
+                            if (data.conversion) {
+                                $("#img_producto").attr({ "src": "data:image/" + data.extension + ";base64," + data.textoBase64 });
+                            } 
+                        },
+                    error: function (error) {
+                        $("#img_producto").LoadingOverlay("hide");
+                        $("#mensajeError").show();
+                        $("#mensajeError").text("Error al mostrar la imagen");
+                        },
+                    beforeSend: function () {
+                        $("#img_producto").LoadingOverlay("show");
+                        },
+                   });
+
+
+
             }
 
             $("#FormModal").modal("show");
@@ -312,13 +341,13 @@
 
         $("#tabla tbody").on("click", '.btn-eliminar', function () {
 
-            var marcaSeleccionada = $(this).closest("tr");
+            var productoSeleccionado = $(this).closest("tr");
 
-            var data = tabladata.row(marcaSeleccionada).data();
+            var data = tabladata.row(productoSeleccionado).data();
 
             swal({
                 title: "Estas Seguro?",
-                text: "Desea Eliminar la Marca!",
+                text: "Desea Eliminar el Producto!",
                 type: "warning",
                 showCancelButton: true,
                 confirmButtonClass: "btn-danger",
@@ -330,26 +359,23 @@
                 function () {
 
                    jQuery.ajax({
-                        url: '@Url.Action("EliminarMarca", "Mantenedor")',
+                        url: '@Url.Action("EliminarProducto", "Mantenedor")',
                        type: "POST",
-                       data: JSON.stringify({ id: data.IdMarca }),
+                       data: JSON.stringify({ id: data.IdProducto }),
                         dataType: "json",
                         contentType: "application/json; charset=utf-8",
                         success: function (data) {
 
                             if (data.resultado) {
 
-                                tabladata.row(marcaSeleccionada).remove().draw();
+                                tabladata.row(productoSeleccionado).remove().draw();
                             } else {
                                 swal("No se pudo eliminar", data.mensaje, "error");
                             }
                         },
                         error: function (error) {
                             console.log(error)
-                        },
-                        beforeSend: function () {
-
-                        },
+                        }
                    });
 
 
