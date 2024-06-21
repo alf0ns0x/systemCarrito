@@ -1,6 +1,8 @@
 ﻿@{
-    ViewBag.Title = "Hola";
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 
 <h1 class="mt-4">Dashboard</h1>
 <ol class="breadcrumb mb-4">
@@ -63,7 +65,7 @@
     </div>
     <div class="card-body">
 
-        <form>
+        <form action="@Url.Action("ExportarVenta", "Home")" method="post">
             <div class="row align-items-end">
                 <div class="col-sm-2">
                     <div class="mb-2">
@@ -104,50 +106,98 @@
 
         <div class="row">
             <div class="col-sm-12">
-                <table id="tabla" class="display cell-border" style="width:100%" >
+                <table id="tabla" class="display cell-border" style="width:100%">
                     <thead>
                         <tr>
-                            <th scope="col">Fecha Venta</th>
+                            <th scope="col">FechaVenta</th>
                             <th scope="col">Cliente</th>
                             <th scope="col">Producto</th>
                             <th scope="col">Precio</th>
                             <th scope="col">Cantidad</th>
                             <th scope="col">Total</th>
-                            <th scope="col">ID Transaccion</th>
+                            <th scope="col">IDTransaccion</th>
                         </tr>
                     </thead>
                     <tbody>
-                       
                     </tbody>
                 </table>
             </div>
         </div>
-    
-       
-    </div>        
+
+
+    </div>
 </div>
 
 @section scripts{
 
     <script type="text/javascript">
 
-        $("#txtfechainicio").datepicker({ dateFormat: 'dd/mm/yy' }).datepicker('setDate', new Date());
-        $("#txtfechafin").datepicker({ dateFormat: 'dd/mm/yy' }).datepicker('setDate',new Date());
+        var tabladata;
 
-        jQuery.ajax({
-            url: '@Url.Action("VistaDashBoard", "Home")',
-            type: "GET",
-            dataType: "json",
-            contentType: "application/json; charset=utf-8",
-            success: function (data) {
-                
-                var objeto = data.resultado;
+        $(document).ready(function () {
 
-                $("#totalcliente").text(objeto.TotalCliente);
-                $("#totalventa").text(objeto.TotalVenta);
-                $("#totalproducto").text(objeto.TotalProducto);
-              
+            $("#txtfechainicio").datepicker({ dateFormat: 'dd/mm/yy' }).datepicker('setDate', new Date());
+            $("#txtfechafin").datepicker({ dateFormat: 'dd/mm/yy' }).datepicker('setDate', new Date());
+
+            jQuery.ajax({
+                url: '@Url.Action("VistaDashBoard", "Home")',
+                type: "GET",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+
+                    var objeto = data.resultado;
+
+                    $("#totalcliente").text(objeto.TotalCliente);
+                    $("#totalventa").text(objeto.TotalVenta);
+                    $("#totalproducto").text(objeto.TotalProducto);
+                }
+            });
+
+
+               var Url = '@Url.Action("ListaReporte", "Home")' +
+                 "?fechainicio=" + $("#txtfechainicio").val() +
+                 "&fechafin=" + $("#txtfechafin").val() +
+                 "&idtransaccion=" + $("#txtidtransaccion").val()
+
+
+            tabladata = $("#tabla").DataTable({
+            responsive: true,
+            ordering: false,
+            "ajax": {
+                url: Url,
+                type: "GET",
+                dataType: "json"
+            },
+            "columns": [
+                { "data": "FechaVenta" },
+                { "data": "Cliente" },
+                { "data": "Producto" },
+                { "data": "Precio" },
+                { "data": "Cantidad" },
+                { "data": "Total" },
+                { "data": "IdTransaccion" }
+            ],
+            "language": {
+                "url": "https://cdn.datatables.net/plug-ins/1.11.3/i18n/es_es.json"
             }
+            });
+
+
+              $("#btnbuscar").on("click", function () {
+                 var Url = '@Url.Action("ListaReporte", "Home")' +
+                 "?fechainicio=" + $("#txtfechainicio").val() +
+                 "&fechafin=" + $("#txtfechafin").val() +
+                 "&idtransaccion=" + $("#txtidtransaccion").val()
+
+                 tabladata.ajax.url(nueva_url).load();
+              });
+
         });
-    </script>    
+
+
+
+
+    </script>
 }
+
