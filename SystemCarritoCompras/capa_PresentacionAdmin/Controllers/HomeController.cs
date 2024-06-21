@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using CapaEntidad;
 using CapaNegocio;
 
+
 namespace capa_PresentacionAdmin.Controllers
 {
     public class HomeController : Controller
@@ -59,6 +60,18 @@ namespace capa_PresentacionAdmin.Controllers
             return Json(new { resultado = respuesta, mensaje = mensaje }, JsonRequestBehavior.AllowGet);
 
         }
+
+
+        [HttpGet]
+        public JsonResult ListaReporte(string fechainicio,string fechafin,string idtransaccion)    
+        {
+            List<Reporte> oLista = new List<Reporte>();
+
+            oLista = new CN_Reporte().Ventas(fechainicio,fechafin,idtransaccion);
+
+            return Json(new { resultado = oLista }, JsonRequestBehavior.AllowGet);
+        }
+
 
         [HttpGet]
         public JsonResult VistaDashBoard() {

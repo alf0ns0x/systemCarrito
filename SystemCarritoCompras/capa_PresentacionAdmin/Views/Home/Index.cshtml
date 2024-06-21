@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Hola";
 }
 
 <h1 class="mt-4">Dashboard</h1>
@@ -68,7 +68,7 @@
                 <div class="col-sm-2">
                     <div class="mb-2">
                         <label class="form-label">Fecha de inicio:</label>
-                        <input class="form-control" type="text" id="txtfechainico" name="fechainicio" />
+                        <input class="form-control" type="text" id="txtfechainicio" name="fechainicio" />
                     </div>
                 </div>
 
@@ -130,6 +130,10 @@
 @section scripts{
 
     <script type="text/javascript">
+
+        $("#txtfechainicio").datepicker({ dateFormat: 'dd/mm/yy' }).datepicker('setDate', new Date());
+        $("#txtfechafin").datepicker({ dateFormat: 'dd/mm/yy' }).datepicker('setDate',new Date());
+
         jQuery.ajax({
             url: '@Url.Action("VistaDashBoard", "Home")',
             type: "GET",

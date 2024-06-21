@@ -307,6 +307,19 @@
     <Content Include="Content\DataTables\swf\flashExport.swf" />
     <Content Include="Content\fontawesome.css" />
     <Content Include="Content\fontawesome.min.css" />
+    <Content Include="Content\images\ui-bg_glass_40_ffc73d_1x400.png" />
+    <Content Include="Content\images\ui-bg_highlight-hard_20_0972a5_1x100.png" />
+    <Content Include="Content\images\ui-bg_highlight-soft_33_003147_1x100.png" />
+    <Content Include="Content\images\ui-bg_highlight-soft_35_222222_1x100.png" />
+    <Content Include="Content\images\ui-bg_highlight-soft_44_444444_1x100.png" />
+    <Content Include="Content\images\ui-bg_highlight-soft_80_eeeeee_1x100.png" />
+    <Content Include="Content\images\ui-bg_loop_25_000000_21x21.png" />
+    <Content Include="Content\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\images\ui-icons_4b8e0b_256x240.png" />
+    <Content Include="Content\images\ui-icons_a83300_256x240.png" />
+    <Content Include="Content\images\ui-icons_cccccc_256x240.png" />
+    <Content Include="Content\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\jquery-ui.css" />
     <Content Include="Content\regular.css" />
     <Content Include="Content\regular.min.css" />
     <Content Include="Content\solid.css" />
@@ -446,6 +459,7 @@
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
