@@ -133,7 +133,7 @@ namespace capa_PresentacionAdmin.Controllers
         [HttpPost]
         public JsonResult GuardarProducto(string objeto, HttpPostedFileBase archivoImagen)
         {
-            object resultado;
+           
             string mensaje = string.Empty;
             bool operacion_exitosa = true;
             bool guardar_imagen_exito = true;
