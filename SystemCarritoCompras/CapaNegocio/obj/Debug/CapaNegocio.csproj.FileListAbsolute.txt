@@ -17,6 +17,6 @@ C:\Users\Administrador\Desktop\systemCarrito\SystemCarritoCompras\CapaNegocio\bi
 C:\Users\Administrador\Desktop\systemCarrito\SystemCarritoCompras\CapaNegocio\bin\Debug\CapaEntidad.pdb
 C:\Users\Administrador\Desktop\systemCarrito\SystemCarritoCompras\CapaNegocio\obj\Debug\CapaNegocio.csproj.AssemblyReference.cache
 C:\Users\Administrador\Desktop\systemCarrito\SystemCarritoCompras\CapaNegocio\obj\Debug\CapaNegocio.csproj.CoreCompileInputs.cache
-C:\Users\Administrador\Desktop\systemCarrito\SystemCarritoCompras\CapaNegocio\obj\Debug\CapaNegocio.csproj.CopyComplete
+C:\Users\Administrador\Desktop\systemCarrito\SystemCarritoCompras\CapaNegocio\obj\Debug\CapaNego.81B9D119.Up2Date
 C:\Users\Administrador\Desktop\systemCarrito\SystemCarritoCompras\CapaNegocio\obj\Debug\CapaNegocio.dll
 C:\Users\Administrador\Desktop\systemCarrito\SystemCarritoCompras\CapaNegocio\obj\Debug\CapaNegocio.pdb
