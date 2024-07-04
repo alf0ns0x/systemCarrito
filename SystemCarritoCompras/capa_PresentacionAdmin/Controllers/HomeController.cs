@@ -13,6 +13,7 @@ using ClosedXML.Excel;
 
 namespace capa_PresentacionAdmin.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         public ActionResult Index()
