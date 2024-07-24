@@ -1,0 +1,4 @@
+###instalas 
+Font.Awesome por Dave Gandy, Tieson 5.15
+jQuery.LoadingOverlay por Gaspare Sganaga
+SweetAlert.Bootstrap por Khawaja Asim
