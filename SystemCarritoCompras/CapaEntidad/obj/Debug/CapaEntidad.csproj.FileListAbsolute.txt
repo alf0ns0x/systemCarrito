@@ -10,3 +10,9 @@ C:\Users\Administrador\Desktop\systemCarrito\SystemCarritoCompras\CapaEntidad\ob
 C:\Users\Administrador\Desktop\systemCarrito\SystemCarritoCompras\CapaEntidad\obj\Debug\CapaEntidad.csproj.CoreCompileInputs.cache
 C:\Users\Administrador\Desktop\systemCarrito\SystemCarritoCompras\CapaEntidad\obj\Debug\CapaEntidad.dll
 C:\Users\Administrador\Desktop\systemCarrito\SystemCarritoCompras\CapaEntidad\obj\Debug\CapaEntidad.pdb
+C:\Users\Administrador\Desktop\Inventario\Alf\systemCarrito\SystemCarritoCompras\CapaEntidad\bin\Debug\CapaEntidad.dll
+C:\Users\Administrador\Desktop\Inventario\Alf\systemCarrito\SystemCarritoCompras\CapaEntidad\bin\Debug\CapaEntidad.pdb
+C:\Users\Administrador\Desktop\Inventario\Alf\systemCarrito\SystemCarritoCompras\CapaEntidad\obj\Debug\CapaEntidad.csproj.AssemblyReference.cache
+C:\Users\Administrador\Desktop\Inventario\Alf\systemCarrito\SystemCarritoCompras\CapaEntidad\obj\Debug\CapaEntidad.csproj.CoreCompileInputs.cache
+C:\Users\Administrador\Desktop\Inventario\Alf\systemCarrito\SystemCarritoCompras\CapaEntidad\obj\Debug\CapaEntidad.dll
+C:\Users\Administrador\Desktop\Inventario\Alf\systemCarrito\SystemCarritoCompras\CapaEntidad\obj\Debug\CapaEntidad.pdb
