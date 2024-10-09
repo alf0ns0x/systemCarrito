@@ -171,6 +171,7 @@ namespace capa_PresentacionTienda.Controllers
 
         public ActionResult CerrarSession()
         {
+            Session.Clear();
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Acceso");
         }
